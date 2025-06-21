@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -1219,11 +1220,14 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             // Obter nome do dia da semana
-            function getDayName(dateStr) {
-                const days = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
-                const date = new Date(dateStr.split('/').reverse().join('-'));
-                return days[date.getDay()];
-            }
+// Obter nome do dia da semana
+function getDayName(dateStr) {
+    const days = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
+    // Ajuste para o formato DD/MM/YYYY
+    const [day, month, year] = dateStr.split('/');
+    const date = new Date(year, month - 1, day);
+    return days[date.getDay()];
+}
             
             // Função para gerar o roteiro formatado
             function generateSchedule() {
